@@ -2,7 +2,7 @@
 //  MiniPlayerTransitionSampleTests.swift
 //  MiniPlayerTransitionSampleTests
 //
-//  Created by 倉岡 昭一 on 2019/05/13.
+//  Created by Shoichi Kuraoka on 2019/05/13.
 //  Copyright © 2019 ShoichiKuraoka. All rights reserved.
 //
 
