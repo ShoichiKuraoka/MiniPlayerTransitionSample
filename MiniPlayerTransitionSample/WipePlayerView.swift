@@ -24,7 +24,7 @@ class WipePlayerView: UIView {
         }
     }
     // private
-    private let closeButton = UIButton()
+    private let closeButton = UIButton(type: .system)
     private let playerBaseView = UIView()
     
     // MARK: Lifecycle

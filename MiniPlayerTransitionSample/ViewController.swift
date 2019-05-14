@@ -14,7 +14,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let button = UIButton()
+    let button = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
