@@ -74,9 +74,10 @@ class PanDismissInteractiveTransition: UIPercentDrivenInteractiveTransition {
             }
         }()
         let maxPanDistance: CGFloat = {
+            let safeAreaFrame = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame ?? CGRect.zero
             switch panDirection {
-            case .down, .up: return UIApplication.shared.keyWindow?.frame.height ?? 0
-            case .right, .left: return UIApplication.shared.keyWindow?.frame.width ?? 0
+            case .down, .up: return safeAreaFrame.height
+            case .right, .left: return safeAreaFrame.width
             }
         }()
         return max(min(changePanDistance / maxPanDistance, 1), 0)

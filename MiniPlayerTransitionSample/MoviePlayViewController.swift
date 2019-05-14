@@ -179,23 +179,23 @@ extension MoviePlayViewController {
                 delay: 0,
                 options: .layoutSubviews,
                 animations: {
-                    // アニメーション：0 ~ 2/6
-                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 2/6) {
+                    // アニメーション：0 ~ 2/3
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 2/3) {
                         contentView.frame = contentFrame2nd
                         playerView.frame.size = contentFrame2nd.size
                         textViewSnapshot.center.x = contentView.frame.width / 2
                         textViewSnapshot.center.y = contentView.frame.height / 2
                         textViewSnapshot.layer.opacity = 0
                     }
-                    // アニメーション：2/6 ~ 3/6
-                    UIView.addKeyframe(withRelativeStartTime: 2/6, relativeDuration: 1/6) {
+                    // アニメーション：2/3 ~ 3/3
+                    UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
                         contentView.frame = contentFrame3rd
                         playerView.frame.size = CGSize(width: 100, height: contentFrame3rd.height)
                         wipePlayerView.frame = contentFrame3rd
                         wipePlayerView.layer.opacity = 1
                     }
-                    // アニメーション：0 ~ 4/6
-                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 4/6) {
+                    // アニメーション：0 ~ 3/3
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
                         backgroundView.layer.opacity = 0
                     }
                     

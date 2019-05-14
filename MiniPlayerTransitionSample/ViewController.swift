@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         button.setTitle("open movie", for: .normal)
         button.rx.tap
             .subscribe(onNext: { [weak self] _ in
+                guard let `self` = self else { return }
                 let moviePlayVC = MoviePlayViewController()
                 moviePlayVC.playerView = {
                     let playerView = PlayerView()
@@ -32,7 +33,9 @@ class ViewController: UIViewController {
                     playerView.player?.play()
                     return playerView
                 }()
-                self?.present(moviePlayVC, animated: true)
+                self.present(moviePlayVC, animated: true) {
+                    self.view.subviews.forEach { ($0 as? WipePlayerView)?.removeFromSuperview() }
+                }
             })
             .disposed(by: rx.disposeBag)
         view.addSubview(button)
