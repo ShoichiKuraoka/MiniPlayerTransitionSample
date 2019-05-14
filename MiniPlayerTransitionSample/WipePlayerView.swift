@@ -39,15 +39,19 @@ class WipePlayerView: UIView {
         closeButton.setTitleColor(.black, for: .normal)
         closeButton.setTitle("close", for: .normal)
         closeButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let `self` = self else { return }
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 1, animations: {
-                        self.isHidden = true
-                    }, completion: { _ in
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let `self` = self, let superview = self.superview else { return }
+                UIView.animate(
+                    withDuration: 0.2,
+                    delay: 0,
+                    options: UIView.AnimationOptions.curveEaseOut,
+                    animations: {
+                        self.frame.origin.y = superview.frame.height + self.layer.shadowRadius
+                },
+                    completion: { _ in
                         self.removeFromSuperview()
-                    })
-                }
+                })
             })
             .disposed(by: rx.disposeBag)
         addSubview(closeButton)
